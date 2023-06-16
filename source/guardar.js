@@ -10,6 +10,8 @@ function validarCorreo(correo){
                 correo: document.getElementById("email").value,
                 fecha_nac: document.getElementById("date").value,
                 
+                fecha_creacion: firebase.firestore.FieldValue.serverTimestamp() // Campo de fecha y hora de creación
+                
             })
             .then((docRef) => {
                 alert("Agregado correctamente!")

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <link rel="stylesheet" href="source/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">
+            <h2>POLISHOP</h2>
+        </a>
+        
+        <a href="cart.html">
+            <div class="cart">
+                <i class="bi bi-cart-check"></i>
+                <div id="cartAmount" class="cartAmount">0</div>
+            </div>
+        </a>
+        
+    </div> 
+
+    <div id="label" class="text-center"></div>
+    <div class="shopping-cart" id="shopping-cart"></div>
+    <div id="cartDataText"></div>
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script src="source/configuracion.js"></script>
+<script src="source/guardarTicket.js"></script>
+<script src="source/data.js"></script>
+<script src="source/cart.js"></script>
+<script src="source/jspdf.min.js"></script>
+</html>
