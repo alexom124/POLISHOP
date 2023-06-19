@@ -11,7 +11,7 @@ function guardarTicket() {
     })
     .then((docRef) => {
         alert("Agregado correctamente!");
-        // window.location.href = 'index.html';
+        // window.location.href = 'shop.html'; //shop
     })
     .catch((error) => {
         alert("Error en el registro");

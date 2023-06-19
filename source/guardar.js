@@ -15,7 +15,7 @@ function validarCorreo(correo){
             })
             .then((docRef) => {
                 alert("Agregado correctamente!")
-                window.location.href = 'index.html';
+                window.location.href = 'shop.html';
             })
             .catch((error) => {
                 alert("Error en el registro")

@@ -4,6 +4,7 @@ let shoppingCart = document.getElementById("shopping-cart")
 
 console.log(shopItemsData);
 
+
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let calculation =()=>{
@@ -52,7 +53,7 @@ let generateCartItems = () => {
         shoppingCart.innerHTML = ``;
         label.innerHTML= `
         <h2>Carrito Vacio<h2>
-        <a href="index.html">
+        <a href="shop.html">
             <button class="homeBtn">Regresar </button>
         </a>
         `;
@@ -126,59 +127,7 @@ let clearCart = () => {
     
 };
 
-// function genPDF() {
-//     var doc = new jsPDF();
 
-//     //Cuenta Total
-//     var totalAPagar = basket.reduce((total, x) => {
-//         var { id, item } = x;
-//         var search = shopItemsData.find((y) => y.id === id) || {};
-//         var { price } = search;
-//         var productTotal = item * price;
-//         return total + productTotal;
-//     }, 0);
-    
-//     // Cálculo del total de cada producto y del precio total de todos los productos
-//     var cartData = basket.map((x) => {
-//         var { id, item } = x;
-//         var search = shopItemsData.find((y) => y.id === id) || {};
-//         var { name, price } = search;
-//         var productoTotal = item * price;
-
-       
-//         return {
-//             id: id,
-//             name: name,
-//             price: price,
-//             item: item,
-//             productTotal: productoTotal,
-//           };
-
-//        // return `Producto: ${name}, Precio: $${price}, Cantidad: ${item}, Total: $${productoTotal}`;
-        
-        
-        
-//     }
-    
-    
-//     ).join('\n \n');
-    
-
-//     var totalAPagarText = `Total: $${totalAPagar}`;
-
-//     // Agregar los datos del carrito al PDF
-//     doc.text(15, 20, 'polishop');
-//     doc.text(60, 20, 'TICKET DE COMPRA');
-//     doc.text(20, 40, cartData);
-    
-//     doc.text(140,20,totalAPagarText);
-    
-//     // Guardar el PDF
-//     doc.save('Ticket de compra.pdf');
-
-//     guardarTicket2(cartData);
-    
-// }
 
 function genPDF() {
     var doc = new jsPDF();
@@ -229,15 +178,13 @@ function genPDF() {
     cartData.forEach((data) => {
       guardarTicket2(data);
     });
+
+    
+   
   }
 
 
 
-// let genPDF= () => {
-//     var doc=new jsPDF();
-//     doc.text(20,20, )
-//     doc.save('ticketCompra');
-// } 
 
   
 
@@ -262,29 +209,7 @@ let TotalAmount = ()=> {
 TotalAmount();
 
 
-// function guardarTicket2(cartData) {
-//     //! Datos almacenados
 
-//     var { id, name, price, item } = cartData;
-
-//   db.collection('usuario')
-//     .add({
-//       idt: id,
-//       namet: name,
-//       pricet: price,
-//       itemt: item,
-//     })
-//     .then((docRef) => {
-//       alert('Agregado correctamente!');
-//       // window.location.href = 'index.html';
-//     })
-//     .catch((error) => {
-//       alert('Error en el registro');
-//     });
-    
-//     //! termina datos almacenados
-    
-// }
 
 function guardarTicket2(data) {
     //! Datos almacenados
@@ -309,8 +234,48 @@ function guardarTicket2(data) {
     //! termina datos almacenados
   }
 
-// function genPDF() {
-//     var doc = new jsPDF();
-//     doc.text(20, 20, 'Ticket de compra (todavía falla)');
-//     doc.save('Ticket de compra.pdf');
-//   }
+
+
+
+// SDK de Mercado Pago
+
+//  mercadopago = require("mercadopago");
+// Agrega credenciales
+ Mercadopago.configure({
+  access_token: "TEST-1937944649839976-061822-1ff55099cfcf5c4fa8ecaf9cc0cf8faa-1402046215",
+});
+
+
+// Crea un objeto de preferencia
+ preference = {
+  items: [
+    {
+      title: "Mi producto",
+      unit_price: 100,
+      quantity: 1,
+    },
+  ],
+};
+
+Mercadopago.preferences
+  .create(preference)
+  .then(function (response) {
+    // En esta instancia deberás asignar el valor dentro de response.body.id por el ID de preferencia solicitado en el siguiente paso
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+  
+const mp = new MercadoPago('TEST-1937944649839976-061822-1ff55099cfcf5c4fa8ecaf9cc0cf8faa-1402046215');
+const bricksBuilder = mp.bricks();
+
+
+
+mp.bricks().create("wallet", "wallet_container", {
+  initialization: {
+      preferenceId: "<PREFERENCE_ID>",
+  },
+});
+
+
