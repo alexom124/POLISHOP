@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "mercadopago": "^1.5.16"
+    "mercadopago": "^1.5.16",
+    "slick-carousel": "^1.8.1"
   }
 }
