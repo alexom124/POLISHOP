@@ -179,7 +179,7 @@ function genPDF() {
       guardarTicket2(data);
     });
 
-    
+    window.location.href = 'paypal.html';
    
   }
 
@@ -236,46 +236,5 @@ function guardarTicket2(data) {
 
 
 
-
-// SDK de Mercado Pago
-
-//  mercadopago = require("mercadopago");
-// Agrega credenciales
- Mercadopago.configure({
-  access_token: "TEST-1937944649839976-061822-1ff55099cfcf5c4fa8ecaf9cc0cf8faa-1402046215",
-});
-
-
-// Crea un objeto de preferencia
- preference = {
-  items: [
-    {
-      title: "Mi producto",
-      unit_price: 100,
-      quantity: 1,
-    },
-  ],
-};
-
-Mercadopago.preferences
-  .create(preference)
-  .then(function (response) {
-    // En esta instancia deberás asignar el valor dentro de response.body.id por el ID de preferencia solicitado en el siguiente paso
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-
-  
-const mp = new MercadoPago('TEST-1937944649839976-061822-1ff55099cfcf5c4fa8ecaf9cc0cf8faa-1402046215');
-const bricksBuilder = mp.bricks();
-
-
-
-mp.bricks().create("wallet", "wallet_container", {
-  initialization: {
-      preferenceId: "<PREFERENCE_ID>",
-  },
-});
 
 

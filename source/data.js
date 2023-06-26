@@ -8,13 +8,13 @@ let shopItemsData = [
 
 },{
     id:"asd2",
-    name:"Playera Hombre Ipn",
+    name:"Playera Upiicsa Hombre 50°",
     price:230,
     desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: "images/ipnPlayera1.webp"
 },{
     id:"asd3",
-    name:"Player Mujer Ipn",
+    name:"Player Upiicsa Mujer",
     price:240,
     desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: "images/ipnPlayera2.webp"
@@ -28,30 +28,30 @@ let shopItemsData = [
 },
 {
     id:"asd5",
-    name:"Playera Guinda ",
+    name:"Sudadera Guinda ",
     price:240,
     desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.",
-    img: "images/Playera1.png"
+    img: "images/web4.webp"
 },
 {
     id:"asd6",
-    name:"Playera U. Azul",
+    name:"Playera Upiicsa Hombre",
     price:240,
     desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.",
-    img: "images/Playera2.png"
+    img: "images/web6.webp"
 },
 {
     id:"asd7",
-    name:"Playera U. Verde",
+    name:"Playera U. Azul",
     price:240,
     desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.",
-    img: "images/Playera3.png"
+    img: "images/web3.webp"
 },
 {
     id:"asd8",
     name:"Playera U. Games",
     price:240,
     desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.",
-    img: "images/Playera4.png"
+    img: "images/web2.webp"
 },
 ];
