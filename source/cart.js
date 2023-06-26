@@ -63,24 +63,29 @@ let generateCartItems = () => {
 
 generateCartItems();
 
-let increment =(id)=>{
-    let selectedItem = id;
-    let search = basket.find((x)=> x.id === selectedItem.id);
+let increment = (id) => {
+  let selectedItem = id;
+  let search = basket.find((x) => x.id === selectedItem.id);
 
-    if(search === undefined){
-        basket.push({
-            id: selectedItem.id,
-            item: 1,
-        });
+  if (search === undefined) {
+    basket.push({
+      id: selectedItem.id,
+      item: 1,
+    });
+  } else {
+    if (search.item >= 10) {
+      alert('No puedes agregar más de 10 artículos.');
+      return;
     }
-    else{
-        search.item += 1;
-    }
-    localStorage.setItem("data", JSON.stringify(basket));
 
-    generateCartItems();
-    update(selectedItem.id);
+    search.item += 1;
+  }
+  localStorage.setItem('data', JSON.stringify(basket));
+
+  generateCartItems();
+  update(selectedItem.id);
 };
+
 
 let decrement = (id) => {
     let selectedItem = id;
