@@ -37,24 +37,29 @@ let generateShop =()=> {
 
 generateShop();
 
-let increment =(id)=>{
+let increment = (id) => {
     let selectedItem = id;
-    let search = basket.find((x)=> x.id === selectedItem.id);
-
-    if(search === undefined){
-        basket.push({
-            id: selectedItem.id,
-            item: 1,
-        });
+    let search = basket.find((x) => x.id === selectedItem.id);
+  
+    if (search === undefined) {
+      basket.push({
+        id: selectedItem.id,
+        item: 1,
+      });
+    } else {
+      if (search.item >= 10) {
+        alert('No puedes agregar más de 10 productos.');
+        return;
+      }
+  
+      search.item += 1;
     }
-    else{
-        search.item += 1;
-    }
-    localStorage.setItem("data", JSON.stringify(basket));
-
+    localStorage.setItem('data', JSON.stringify(basket));
+  
     //console.log(basket);
     update(selectedItem.id);
-};
+  };
+  
 
 let decrement = (id) => {
     let selectedItem = id;

@@ -103,6 +103,21 @@ button[type='submit'] {
     transition: background-color 0.2s ease-in-out;
 }
 
+.btn-verify {
+    background-color: #EABF43; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 16px; 
+  }
+  
+  .btn-verify:hover {
+    background-color: #8C6D14; 
+  }
+  
+
 button[type='submit']:hover {
     background-color: var(--color-boton-hover);
 }

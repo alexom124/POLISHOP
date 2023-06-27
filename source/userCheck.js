@@ -11,7 +11,7 @@ function validarUsuario() {
         .then((querySnapshot) => {
             if (querySnapshot.size > 0) {
                 // El usuario ya existe en la base de datos
-                alert('El usuario ya existe');
+                alert('Logueado exitosamente!');
                 window.location.href = 'shop.html';
             } else {
                 // El usuario no existe en la base de datos
