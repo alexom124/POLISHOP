@@ -539,6 +539,7 @@ body {
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    
 }
 
 .carousel {
@@ -575,7 +576,7 @@ body {
 }
 
 .carousel-controls button {
-    font-size: 30px;
+    font-size: 200px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -719,7 +720,7 @@ body {
 
 .customer-feedback .owl-dots .owl-dot.active span {
 	background-color: rgb(251, 90, 13);
-} */
+} 
 
 /* RESPONSIVE */
 @media screen and (max-width: 767px) {
