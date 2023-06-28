@@ -14,10 +14,10 @@
   
     <div class="container">
       <div class="row">
-        <form>
+        <form id="form">
           <div class="form-group">
             <label for="exampleInputEmail1">Nombre</label>
-            <input type="text" class="form-control" id="name" required pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+" title="Ingresa solo letras y espacios. No se permiten números ni caracteres especiales">
+            <input type="text" class="form-control" id="name" required pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+" title="Ingresa solo letras y espacios. No se permiten números ni caracteres especiales" name="name">
           </div>
     
           <div class="form-group">
@@ -27,23 +27,66 @@
     
           <div class="form-group">
             <label for="exampleInputEmail1">Correo Electrónico</label>
-            <input type="email" value placeholder="ejemplo@dominio.com" class="form-control" id="email" required>
+            <input type="email" value placeholder="ejemplo@dominio.com" id="email" class="form-control"  name="email" required>
           </div>
     
+          
           <div class="form-group">
             <label for="exampleInputPassword1">Contraseña</label>
-            <input type="password" class="form-control" id="password" required minlength="6">
+            <input type="password" id="password" class="form-control" name="password" required minlength="6" required>
           </div>
     
           <div class="form-group">
             <label for="exampleInputEmail1">Fecha de Nacimiento</label>
             <input type="date" class="form-control" id="date" aria-describedby="emailHelp" required>
           </div>
+
+          
     
-          <a href="#" class="btn btn-primary" onclick="validarFormulario()">Enviar</a>
+          <!-- <a href="#" class="btn btn-primary" id="button" value="ENVIAR MENSAJE" onclick="validarFormulario()">Enviar</a> -->
+
+           <input type="submit" class="btn btn-success" id="button" value="ENVIAR MENSAJE" onclick="validarFormulario()" >
+
         </form>
       </div>
     </div>
+
+
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
+  <script type="text/javascript">
+    emailjs.init('smHKc857zwQMzot4o')
+  </script>
+
+
+
+    <!-- !Logica correo -->
+
+    <script>
+       
+      //  console.log("entro en correo");
+      //  document.getElementById('form').addEventListener('submit', function(event) {
+      //           event.preventDefault();
+        
+      //           const btn = document.getElementById('button');
+      //           btn.value = 'Enviando...';
+        
+      //           const serviceID = 'default_service';
+      //          const templateID = 'template_aubgqv7';
+        
+      //           emailjs.sendForm(serviceID, templateID, this)
+      //               .then(() => {
+      //                   btn.value = 'ENVIAR MENSAJE';
+      //                   alert('Mensaje enviado correctamente');
+      //                   window.location.href = 'userCheck.html';
+      //               }, (err) => {
+      //                   btn.value = 'ENVIAR MENSAJE';
+      //                   alert(JSON.stringify(err));
+      //               });
+      //       });
+
+  </script>
     
     
     
