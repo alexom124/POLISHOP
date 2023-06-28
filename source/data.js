@@ -14,7 +14,7 @@ let shopItemsData = [
     img: "images/ipnPlayera1.webp"
 },{
     id:"asd3",
-    name:"Player Upiicsa Mujer",
+    name:"Playera Upiicsa Mujer",
     price:240,
     desc:"Si perteneces a upiicsa esta playera es para ti amiga",
     img: "images/ipnPlayera2.webp"

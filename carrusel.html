@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrusel</title>
+    <style>
+        .carousel-container {
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+            flex: 0 0 100%;
+            display: none;
+        }
+        
+        .carousel-item.active {
+            display: block;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .carousel-image-container {
+            width: 100%;
+            height: auto;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .carousel-controls button {
+            font-size: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            color: #000;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .carousel-controls button:hover {
+            transform: scale(1.2);
+        }
+        
+        @keyframes slide-in-right {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slide-in-left {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in-right {
+            animation: slide-in-right 0.5s ease-in-out;
+        }
+        
+        .slide-in-left {
+            animation: slide-in-left 0.5s ease-in-out;
+        }
+        
+        @media (max-width: 600px) {
+            .carousel-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item active">
+                <div class="carousel-image-container">
+                    <img src="images/ipngorra.webp" alt="Imagen 1">
+                </div>
+                <h2>Título 1</h2>
+                <p>Descripción 1</p>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-image-container">
+                    <img src="images/ipnPlayera1.webp" alt="Imagen 2">
+                </div>
+                <h2>Título 2</h2>
+                <p>Descripción 2</p>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-image-container">
+                    <img src="images/ipnPlayera2.webp" alt="Imagen 3">
+                </div>
+                <h2>Título 3</h2>
+                <p>Descripción 3</p>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-image-container">
+                    <img src="images/ipnPlayera3.webp" alt="Imagen 4">
+                </div>
+                <h2>Título 4</h2>
+                <p>Descripción 4</p>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-image-container">
+                    <img src="images/web4.webp" alt="Imagen 5">
+                </div>
+                <h2>Título 5</h2>
+                <p>Descripción 5</p>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-image-container">
+                    <img src="images/web6.webp" alt="Imagen 6">
+                </div>
+                <h2>Título 6</h2>
+                <p>Descripción 6</p>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-image-container">
+                    <img src="images/web3.webp" alt="Imagen 7">
+                </div>
+                <h2>Título 7</h2>
+                <p>Descripción 7</p>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-image-container">
+                    <img src="images/web2.webp" alt="Imagen 8">
+                </div>
+                <h2>Título 8</h2>
+                <p>Descripción 8</p>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button onclick="carouselPrevious()">&#8249;</button>
+            <button onclick="carouselNext()">&#8250;</button>
+        </div>
+    </div>
+
+    <script>
+        var carousel = document.querySelector('.carousel');
+        var carouselItems = document.querySelectorAll('.carousel-item');
+        var currentIndex = 0;
+        var isAnimating = false;
+
+        function showCurrentItem() {
+            carouselItems.forEach(function(item) {
+                item.classList.remove('active');
+            });
+            carouselItems[currentIndex].classList.add('active');
+        }
+
+        function carouselNext() {
+            if (currentIndex < carouselItems.length - 1 && !isAnimating) {
+                isAnimating = true;
+                carouselItems[currentIndex].classList.add('slide-out-left');
+                currentIndex++;
+                carouselItems[currentIndex].classList.add('slide-in-right');
+                showCurrentItem();
+            }
+        }
+
+        function carouselPrevious() {
+            if (currentIndex > 0 && !isAnimating) {
+                isAnimating = true;
+                carouselItems[currentIndex].classList.add('slide-out-right');
+                currentIndex--;
+                carouselItems[currentIndex].classList.add('slide-in-left');
+                showCurrentItem();
+            }
+        }
+
+        carousel.addEventListener('animationend', function() {
+            carouselItems.forEach(function(item) {
+                item.classList.remove('slide-in-right');
+                item.classList.remove('slide-out-right');
+                item.classList.remove('slide-in-left');
+                item.classList.remove('slide-out-left');
+            });
+            isAnimating = false;
+        });
+    </script>
+</body>
+</html>
